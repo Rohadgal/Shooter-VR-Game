@@ -2310,6 +2310,7 @@ MonoBehaviour:
   maxSpeed: 30
   speed: 1.17
   publicTimer: 3.39
+  angle: 0
 --- !u!1 &1832421630
 GameObject:
   m_ObjectHideFlags: 0
