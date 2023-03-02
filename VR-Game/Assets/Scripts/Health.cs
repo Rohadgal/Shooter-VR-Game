@@ -14,5 +14,12 @@ public class Health : MonoBehaviour
         currentHealth -= 10;
         
         Debug.Log(currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            Debug.Log("THIS EXPLODED!");
+            Destroy(gameObject);
+        }
     }
+
 }
