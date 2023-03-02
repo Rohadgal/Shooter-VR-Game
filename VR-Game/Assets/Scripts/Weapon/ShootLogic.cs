@@ -8,11 +8,15 @@ public class ShootLogic : MonoBehaviour
     public Transform origen;
     public int tiempo;
     public int totalSegmentos;
-   // public GameObject bolaPrefab;
+    public GameObject bolaPrefab;
     private LineRenderer lineRenderer;
     private Vector3 puntoParabola;
     private Vector3 velocidadInicial;
     private bool estoyDisparando = false;
+    public float timer = 1;
+
+
+
 
 
     void Start()
@@ -25,14 +29,30 @@ public class ShootLogic : MonoBehaviour
         if (estoyDisparando == false)
         {
             lineRenderer.positionCount = totalSegmentos * tiempo;
-            velocidadInicial = VelocidadInicialCalculo(destino.position, origen.transform.position, tiempo);
+            velocidadInicial = VelocidadInicialCalculo(destino.transform.position, origen.transform.position, tiempo);
             DibujarLinea(velocidadInicial, tiempo);
-            RotarDireccion();
 
         }
+
+        Shoot();
     }
 
-    private Vector3 VelocidadInicialCalculo(Vector3 destino, Vector3 origen, float tiempo)
+    public void Shoot()
+    {
+        if (Input.GetMouseButton(0) && timer == 1)
+        {
+            GameObject bola = Instantiate(bolaPrefab, origen.transform.position, Quaternion.identity);
+            bola.GetComponent<Rigidbody>().velocity = velocidadInicial;
+            timer = 0;
+
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            timer += Time.deltaTime;
+        }
+    }
+    private Vector3 VelocidadInicialCalculo(Vector3 destino,Vector3 origen, float tiempo)
     {
         Vector3 distancia = destino - origen;
         float viX = distancia.x / tiempo;
@@ -64,10 +84,12 @@ public class ShootLogic : MonoBehaviour
         }
     }
 
-    private void RotarDireccion()
+
+    IEnumerator DelayShoot()
     {
-        Vector3 direccion = puntoParabola - (Vector3) origen.transform.position;
-        float angulo = Mathf.Atan2(direccion.x, direccion.y) * Mathf.Rad2Deg;
-        origen.transform.rotation = Quaternion.AngleAxis(angulo, Vector3.forward);
+        yield return new WaitForSeconds(3);
+        GameObject bola = Instantiate(bolaPrefab, origen.transform.position, Quaternion.identity);
+        bola.GetComponent<Rigidbody>().velocity = velocidadInicial;
     }
+
 }
