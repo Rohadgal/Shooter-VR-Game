@@ -8,7 +8,7 @@ public class MoveAroundInCircles : MonoBehaviour
 
     Formulas formulas_F = new Formulas();
 
-    public float minSpeed = -15f;
+    public float minSpeed = 22f;
     public float maxSpeed = 30f;
     public float speed = 1.5f;
 
