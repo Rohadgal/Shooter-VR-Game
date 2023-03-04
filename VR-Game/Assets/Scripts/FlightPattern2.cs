@@ -22,6 +22,8 @@ public class FlightPattern2 : MonoBehaviour
 
     int changeValue = 1;
 
+    [SerializeField] public float angleIntensity = 1f;
+
     //float sineValue;
 
     void Start()
@@ -30,15 +32,8 @@ public class FlightPattern2 : MonoBehaviour
         rotation = Quaternion.LookRotation(relativePosition);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
-       
         Timer();
 
         Quaternion currentPosition = transform.localRotation;
@@ -47,6 +42,7 @@ public class FlightPattern2 : MonoBehaviour
 
         if(!bIsMovingAway)
         {
+          
             transform.localRotation = Quaternion.Slerp(currentPosition, rotation, Time.deltaTime);  
         }
         transform.Translate(0, 0, advanceSpeed * Time.deltaTime);
@@ -68,7 +64,6 @@ public class FlightPattern2 : MonoBehaviour
             bIsMovingAway = !bIsMovingAway;
             changeValue *= -1;
             timer = publicTimer;
-
         }
     }
 }
