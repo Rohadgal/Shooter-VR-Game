@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR;
 
 public class ShootLogic : MonoBehaviour
 {
@@ -70,6 +71,9 @@ public class ShootLogic : MonoBehaviour
 
     public void Shoot()
     {
+        //taget.TryGetFeaturesValue(CommonUsages,trigger,out float triggerValue);
+        //if(triggerValue !=0)
+        //accion 
         if (Input.GetMouseButton(0) && timer >= 0.5f)
         {
             GameObject bola = Instantiate(bolaPrefab, origen.transform.position, Quaternion.identity);
@@ -79,6 +83,7 @@ public class ShootLogic : MonoBehaviour
             
         }
 
+        //triggerValue !=0
         if (Input.GetMouseButton(0))
         {
             timer += Time.deltaTime;
@@ -160,5 +165,7 @@ public class ShootLogic : MonoBehaviour
         GameObject bola = Instantiate(bolaPrefab, origen.transform.position, Quaternion.identity);
         bola.GetComponent<Rigidbody>().velocity = velocidadInicial;
     }
+
+
 
 }
