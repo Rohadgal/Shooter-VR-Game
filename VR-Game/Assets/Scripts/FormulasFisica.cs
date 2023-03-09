@@ -122,15 +122,15 @@ public class Formulas
 
     public static float DotProduct(Vector3 point1, Vector3 point2)
     {
-        float distancePoint1 = point1.x * point2.x + point1.y * point2.y + point1.z * point2.z;
+        return point1.x * point2.x + point1.y * point2.y + point1.z * point2.z;
         //Debug.Log("Sum: " +distancePoint1);
-        return distancePoint1;
+        
 
     }
 
     public static float Angle(Vector3 vectorOne, Vector3 vectorTwo)
     {
-        float angle = DotProduct(vectorOne, vectorTwo) / Formulas.Distance(Vector3.zero,vectorOne)* Formulas.Distance(Vector3.zero, vectorTwo);
-        return (Mathf.Acos(angle))*(180/Mathf.PI); //from radians to degrees
+        float angle = DotProduct(vectorOne, vectorTwo) / (Distance(Vector3.zero,vectorOne)* Distance(Vector3.zero, vectorTwo));
+        return Mathf.Acos(angle);//*(180/Mathf.PI); //from radians to degrees
     }
 }

@@ -36,7 +36,7 @@ public class DetectEnemy : MonoBehaviour
         //Debug.Log("Angle: " + angle);
         //return angle;
         Vector3 toTarget = target.position - transform.position;
-        if(Vector3.Angle(transform.forward, toTarget) <= viewAngle)
+        if(Formulas.Angle(transform.forward, toTarget) <= viewAngle)
         {
             if(Physics.Raycast(transform.position, toTarget, out RaycastHit raycastHit, viewRange ))
             {
