@@ -11,4 +11,9 @@ public class CrossProduct : MonoBehaviour
         float zMult = vect1.x * vect2.y - vect1.y * vect2.x;
         return new Vector3(xMult, yMult, zMult);
     }
+
+    static public float DotPct(Vector3 vect1, Vector3 vect2)
+    {
+        return vect1.x * vect2.x * vect1.y * vect2.y;
+    }
 }

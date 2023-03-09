@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Formulas
 {
-    public float Distance(Vector3 a, Vector3 b)
+    public static float Distance(Vector3 a, Vector3 b)
     {
         float x = Mathf.Pow((b.x - a.x), 2); // Restar x_b - x_a y elevarlo al cuadrado
         float y = Mathf.Pow((b.y - a.y), 2); // Restar y_b - y_a y elevarlo al cuadrado
         float z = Mathf.Pow((b.z - a.z), 2); // Restar z_b - z_a y elevarlo al cuadrado
-
-        return Mathf.Sqrt(x + y + z);
+        float distance = Mathf.Sqrt(x + y + z);
+        Debug.Log("Distance: "+distance);
+        return distance;
     }
 
     public float Magnitud(Vector3 a)
@@ -117,5 +118,13 @@ public class Formulas
         ubicacionActualizada = MatrizBase * vectorUbicacion;
 
         return ubicacionActualizada;
+    }
+
+    public static float DotProduct(Vector3 point1, Vector3 point2)
+    {
+        float distancePoint1 = point1.x * point2.x + point1.y * point2.y + point1.z * point2.z;
+        Debug.Log("Sum: " +distancePoint1);
+        return distancePoint1;
+
     }
 }

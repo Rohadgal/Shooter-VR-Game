@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MoveAroundInCircles : MonoBehaviour
 {
+   
     public Transform center;
 
     Formulas formulas_F = new Formulas();
@@ -49,8 +50,12 @@ public class MoveAroundInCircles : MonoBehaviour
         }
         else
         {
+            //if(CrossProduct.DotPct(transform.forward, center.position) == 0)
+            //{
+                CrossPct(transform.position, center.position);
+                
+           // }
 
-            CrossPct(transform.position, center.position);
             //angle *= -1;
            
             //rotation = Quaternion.AngleAxis(angle, new Vector3(0, 1, 0));
@@ -71,7 +76,7 @@ public class MoveAroundInCircles : MonoBehaviour
         }
         else
         {
-            speed = Random.Range(minSpeed, maxSpeed);
+            //speed = Random.Range(minSpeed, maxSpeed);
             rotation = Quaternion.AngleAxis(angle, new Vector3(1, 0, 0));
             float randomNumber = Random.Range(1,50);
 
@@ -95,4 +100,6 @@ public class MoveAroundInCircles : MonoBehaviour
         float zMult = vect1.x * vect2.y - vect1.y * vect2.x;
         return new Vector3(xMult, yMult, zMult);
     }
+
+  
 }
