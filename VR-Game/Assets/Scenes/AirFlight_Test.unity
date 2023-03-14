@@ -2805,7 +2805,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1446676926}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 147, y: -26.6, z: 31.325352}
+  m_LocalPosition: {x: 17.8, y: -50.8, z: 11.2}
   m_LocalScale: {x: 3.882179, y: 1.3010951, z: 13.137511}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2848,8 +2848,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ship: {fileID: 329978948}
-  fireDistance: 75
   Bomb: {fileID: 394972528}
+  viewAngle: 45
+  viewRange: 60
 --- !u!114 &1446676930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2863,10 +2864,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   center: {fileID: 329978952}
-  minSpeed: 0
-  maxSpeed: 0
-  speed: 0
-  publicTimer: 0
+  minSpeed: 27.98
+  maxSpeed: 31.6
+  speed: 28.28
+  publicTimer: 3.93
   angle: 1
 --- !u!114 &1446676931
 MonoBehaviour:
@@ -3569,5 +3570,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ship: {fileID: 329978948}
-  fireDistance: 75
   Bomb: {fileID: 394972528}
+  viewAngle: 45
+  viewRange: 60

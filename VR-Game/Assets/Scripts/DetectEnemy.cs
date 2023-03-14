@@ -6,39 +6,33 @@ public class DetectEnemy : MonoBehaviour
 {
     public GameObject Ship;
     float distance;
-    public float fireDistance = 10f;
+    //public float fireDistance = 10f;
     public GameObject Bomb;
+    public float viewAngle = 45;
+    public float viewRange = 60;
 
     void Start()
     {
         distance = Formulas.Distance(Ship.transform.position, this.transform.position);
         
     }
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         distance = Formulas.Distance(Ship.transform.position, this.transform.position);
-      
-        //if (distance < fireDistance)
-        if(CanSeeTarget(Ship.transform, 45, 60))
+        if(CanSeeTarget(Ship.transform, viewAngle, viewRange))
         {
-            Debug.Log(distance);
-            Debug.Log("El enemigo está cerca.");
-           Destroy( Instantiate(Bomb, this.transform.position, Quaternion.identity), 2f);
-            
+           Destroy( Instantiate(Bomb, this.transform.position, Quaternion.identity), 2f);   
         }
-        
     }
 
     bool CanSeeTarget(Transform target, float viewAngle, float viewRange)
     {
-        //float angle = Formulas.Angle(transform.worldToLocalMatrix.MultiplyVector(transform.forward), Ship.transform.position);
-        //Debug.Log("Angle: " + angle);
-        //return angle;
         Vector3 toTarget = target.position - transform.position;
-        if(Formulas.Angle(transform.forward, toTarget) <= viewAngle)
+        float angle = Formulas.Angle(transform.forward, toTarget);
+        if (angle <= viewAngle)
         {
-            if(Physics.Raycast(transform.position, toTarget, out RaycastHit raycastHit, viewRange ))
+            Debug.LogError("angulo: "+Formulas.Angle(transform.forward, toTarget));
+            if (Physics.Raycast(transform.position, toTarget, out RaycastHit raycastHit, viewRange ))
             {
                 if(raycastHit.transform.root == target)
                 {
@@ -48,6 +42,4 @@ public class DetectEnemy : MonoBehaviour
         }
         return false;
     }
-
-    
 }
