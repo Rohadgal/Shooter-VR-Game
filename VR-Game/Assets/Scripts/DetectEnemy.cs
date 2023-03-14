@@ -24,17 +24,20 @@ public class DetectEnemy : MonoBehaviour
         }
     }
 
-    bool CanSeeTarget(Transform target, float viewAngle, float viewRange)
+    bool CanSeeTarget(Transform shipTarget, float viewAngle, float viewRange)
     {
-        Vector3 toTarget = target.position - transform.position;
+        Vector3 toTarget = shipTarget.position - transform.position;
         float angle = Formulas.Angle(transform.forward, toTarget);
         if (angle <= viewAngle)
         {
-            Debug.LogError("angulo: "+Formulas.Angle(transform.forward, toTarget));
+           // Debug.LogError("angulo: "+ Vector3.Angle(transform.forward, toTarget));
             if (Physics.Raycast(transform.position, toTarget, out RaycastHit raycastHit, viewRange ))
             {
-                if(raycastHit.transform.root == target)
+
+               // Debug.LogError("Casi Disparo.");
+                if (raycastHit.transform == shipTarget)  
                 {
+                   // Debug.LogError("Disparo.");
                     return true;
                 }
             }
