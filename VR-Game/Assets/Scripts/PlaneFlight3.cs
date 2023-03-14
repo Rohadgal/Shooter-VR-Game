@@ -29,7 +29,7 @@ public class PlaneFlight3 : MonoBehaviour
 
         // Demostrar uso del cuaternion
         myLocalRotation = new Quaternion(axisLocal.x, axisLocal.y, axisLocal.z, Mathf.Sin(angleVelocity)+Mathf.Cos(angleVelocity));
-        Debug.Log(myLocalRotation);
+        //Debug.Log(myLocalRotation);
 
         // Para girar
         transform.Rotate(axisLocal, angleVelocity*angle*Time.deltaTime);

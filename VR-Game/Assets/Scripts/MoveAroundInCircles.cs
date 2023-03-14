@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MoveAroundInCircles : MonoBehaviour
 {
+   
     public Transform center;
 
     Formulas formulas_F = new Formulas();
@@ -38,7 +39,7 @@ public class MoveAroundInCircles : MonoBehaviour
     }    
     void Update()
     {
-        Vector3 relativePosition = (center.position + new Vector3(0f,2.5f,0f)) - transform.position;
+        Vector3 relativePosition = (center.position + new Vector3(0f,15f,0f)) - transform.position;
         rotation = Quaternion.LookRotation(relativePosition);
 
         Quaternion currentPosition = transform.localRotation;
@@ -49,11 +50,17 @@ public class MoveAroundInCircles : MonoBehaviour
         }
         else
         {
-            angle *= -1;
-           
-            rotation = Quaternion.AngleAxis(angle, new Vector3(0, 1, 0));
+            //if(CrossProduct.DotPct(transform.forward, center.position) == 0)
+            //{
+                CrossPct(transform.position, center.position);
+                
+           // }
 
-            transform.localRotation = Quaternion.Lerp(currentPosition, rotation, Time.deltaTime);
+            //angle *= -1;
+           
+            //rotation = Quaternion.AngleAxis(angle, new Vector3(0, 1, 0));
+
+            //transform.localRotation = Quaternion.Lerp(currentPosition, rotation, Time.deltaTime);
         }
 
         Timer();
@@ -69,7 +76,7 @@ public class MoveAroundInCircles : MonoBehaviour
         }
         else
         {
-            speed = Random.Range(minSpeed, maxSpeed);
+            //speed = Random.Range(minSpeed, maxSpeed);
             rotation = Quaternion.AngleAxis(angle, new Vector3(1, 0, 0));
             float randomNumber = Random.Range(1,50);
 
@@ -85,4 +92,14 @@ public class MoveAroundInCircles : MonoBehaviour
             timer = publicTimer;
         }
     }
+
+    static public Vector3 CrossPct(Vector3 vect1, Vector3 vect2)
+    {
+        float xMult = vect1.y * vect2.z - vect1.z * vect2.y;
+        float yMult = vect1.z * vect2.x - vect1.x * vect2.z;
+        float zMult = vect1.x * vect2.y - vect1.y * vect2.x;
+        return new Vector3(xMult, yMult, zMult);
+    }
+
+  
 }

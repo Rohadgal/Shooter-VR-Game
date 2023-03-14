@@ -15,14 +15,17 @@ MonoBehaviour:
   version: 1
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: WaterShader
   m_Shader: {fileID: 4800000, guid: c9e3114ebe036dc4aa9a5c4f81aa4af2, type: 3}
-  m_ShaderKeywords: _REALTIMEREFLECTIONS_ON _VERTEXOFFSET_ON
+  m_ValidKeywords:
+  - _REALTIMEREFLECTIONS_ON
+  - _VERTEXOFFSET_ON
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -76,6 +79,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _AlphaClip: 0
     - _AlphaCutoff: 0.5
@@ -138,10 +142,11 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DepthColor0: {r: 0.10588207, g: 0.5960784, b: 0.61960775, a: 1}
-    - _DepthColor1: {r: 0.058823317, g: 0.19607818, b: 0.46274477, a: 1}
-    - _DepthColor2: {r: 0, g: 0.08091093, b: 0.32075444, a: 1}
+    - _DepthColor0: {r: 0.10586893, g: 0.5960784, b: 0.61960775, a: 1}
+    - _DepthColor1: {r: 0.19815502, g: 0.39343986, b: 0.6886792, a: 1}
+    - _DepthColor2: {r: 0.33725488, g: 0.49266458, b: 0.6039216, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
     - _FresnelColor: {r: 0.48627448, g: 0.8980393, b: 0.8705883, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+  m_BuildTextureStacks: []
