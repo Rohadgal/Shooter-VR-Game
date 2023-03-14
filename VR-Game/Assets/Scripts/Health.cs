@@ -10,7 +10,7 @@ public class Health : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if(collider.name == "Bullet")
+        if(collider.CompareTag("Bullet"))
         currentHealth -= 10;
         
         Debug.Log(currentHealth);
