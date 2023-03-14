@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Formulas
 {
-    public Formulas() { }
-
     public static float Distance(Vector3 a, Vector3 b)
     {
         float x = Mathf.Pow((b.x - a.x), 2); // Restar x_b - x_a y elevarlo al cuadrado
         float y = Mathf.Pow((b.y - a.y), 2); // Restar y_b - y_a y elevarlo al cuadrado
         float z = Mathf.Pow((b.z - a.z), 2); // Restar z_b - z_a y elevarlo al cuadrado
         float distance = Mathf.Sqrt(x + y + z);
-        //Debug.Log("Distance: "+distance);
+        Debug.Log("Distance: "+distance);
         return distance;
     }
 
@@ -32,7 +30,7 @@ public class Formulas
         return a / mag;
     }
 
-    public static float ProductoPunto(Vector3 a, Vector3 b)
+    public float ProductoPunto(Vector3 a, Vector3 b)
     {
         float result;
         Vector3 producto;
@@ -124,21 +122,9 @@ public class Formulas
 
     public static float DotProduct(Vector3 point1, Vector3 point2)
     {
-        //point1 = point1.normalized;
-        //point2 = point2.normalized;
-        float value = point1.x * point2.x + point1.y * point2.y + point1.z * point2.z;
-        //Debug.Log("Resultado del dot product: "+value);
-        return value;
-        //Debug.Log("Sum: " +distancePoint1);
+        float distancePoint1 = point1.x * point2.x + point1.y * point2.y + point1.z * point2.z;
+        Debug.Log("Sum: " +distancePoint1);
+        return distancePoint1;
+
     }
-
-    public static float Angle(Vector3 vectorOne, Vector3 vectorTwo)
-    {
-        float angle = Mathf.Clamp(DotProduct(vectorOne, vectorTwo) / (Vector3.Distance(Vector3.zero, vectorOne)*Vector3.Distance(Vector3.zero, vectorTwo)), -1f, 1f);
-
-        angle = Mathf.Acos(angle) * (180 / Mathf.PI);
-
-        return angle;//from radians to degrees
-    }
-
 }
