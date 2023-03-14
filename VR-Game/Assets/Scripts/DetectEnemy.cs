@@ -14,7 +14,6 @@ public class DetectEnemy : MonoBehaviour
     void Start()
     {
         distance = Formulas.Distance(Ship.transform.position, this.transform.position);
-        
     }
     void FixedUpdate()
     {
@@ -42,4 +41,5 @@ public class DetectEnemy : MonoBehaviour
         }
         return false;
     }
+
 }

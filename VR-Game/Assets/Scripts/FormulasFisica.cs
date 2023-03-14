@@ -16,7 +16,7 @@ public class Formulas
         return distance;
     }
 
-    public static float Magnitud(Vector3 a)
+    public float Magnitud(Vector3 a)
     {
         float x = Mathf.Pow(a.x, 2);
         float y = Mathf.Pow(a.y, 2);
@@ -140,4 +140,5 @@ public class Formulas
 
         return angle;//from radians to degrees
     }
+
 }

@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1841
     height: 1021
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Inspector
   m_RootView: {fileID: 7}
   m_MinSize: {x: 875, y: 350}
   m_MaxSize: {x: 10000, y: 10000}
@@ -42,9 +42,9 @@ MonoBehaviour:
     x: 0
     y: 558
     width: 1302
-    height: 100
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+    height: 152
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -1513,7 +1513,7 @@ MonoBehaviour:
     x: 8
     y: 639
     width: 1301
-    height: 79
+    height: 131
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1561,22 +1561,22 @@ MonoBehaviour:
       x: 0
       y: 21
       width: 1301
-      height: 58
-    m_Scale: {x: 0.04027778, y: 0.04027778}
-    m_Translation: {x: 650.5, y: 29}
+      height: 110
+    m_Scale: {x: 0.07638889, y: 0.07638889}
+    m_Translation: {x: 650.5, y: 55}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -16150.345
+      x: -8515.637
       y: -720
-      width: 32300.69
+      width: 17031.273
       height: 1440
     m_MinimalGUI: 1
-  m_defaultScale: 0.04027778
-  m_LastWindowPixelSize: {x: 1301, y: 79}
+  m_defaultScale: 0.07638889
+  m_LastWindowPixelSize: {x: 1301, y: 131}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000100000100
