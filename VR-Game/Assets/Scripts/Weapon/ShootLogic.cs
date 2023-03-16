@@ -134,7 +134,7 @@ public class ShootLogic : MonoBehaviour
         float viZ = distancia.z / tiempo;
 
         Vector3 velocidadInicial = new Vector3(viX, viY, viZ);
-        print(velocidadInicial);
+        //print(velocidadInicial);
         return velocidadInicial;
     }
 

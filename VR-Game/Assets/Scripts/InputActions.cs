@@ -24,8 +24,8 @@ public class InputActions : MonoBehaviour
     void Update()
     {
         target.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
-        if (triggerValue != 0)
+        if (triggerValue != 0) { }
             //tomar objeto
-            Debug.Log("interaccion");
+            //Debug.Log("interaccion");
     }
 }
