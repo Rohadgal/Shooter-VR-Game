@@ -90,7 +90,7 @@ public class Formulas
         return ubicacionActualizada;
     }
 
-    public Vector3 RotacionDeMatrizY(Vector3 ubicacionActual, float angle)
+    public static Vector3 RotacionDeMatrizY(Vector3 ubicacionActual, float angle)
     {
         Vector3 ubicacionActualizada;
 
