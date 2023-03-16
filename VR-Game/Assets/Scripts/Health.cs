@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    const int initialHealth = 100;
+    const int initialHealth = 20;
     
     int currentHealth = initialHealth;
 

@@ -576,9 +576,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   center: {fileID: 2105271226}
-  minSpeed: 22
-  maxSpeed: 30
-  speed: 25
+  minSpeed: 15
+  maxSpeed: 20
+  speed: 20
   publicTimer: 3.5
   angle: 0
 --- !u!4 &296636052 stripped
@@ -955,9 +955,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   center: {fileID: 2105271226}
-  minSpeed: 22
-  maxSpeed: 30
-  speed: 25
+  minSpeed: 15
+  maxSpeed: 20
+  speed: 20
   publicTimer: 3.5
   angle: 0
 --- !u!4 &585159700 stripped
@@ -1082,9 +1082,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   center: {fileID: 2105271226}
-  minSpeed: 22
-  maxSpeed: 30
-  speed: 25
+  minSpeed: 15
+  maxSpeed: 20
+  speed: 20
   publicTimer: 3.5
   angle: 0
 --- !u!114 &774472810
@@ -1302,7 +1302,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 29f96d9f927cf864db7fdfb707b89203, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.23
+      value: 5.36
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 29f96d9f927cf864db7fdfb707b89203, type: 3}
       propertyPath: m_LocalPosition.y
