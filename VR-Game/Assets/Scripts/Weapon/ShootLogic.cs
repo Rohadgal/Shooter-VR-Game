@@ -71,7 +71,7 @@ public class ShootLogic : MonoBehaviour
 
     public void Shoot()
     {
-        //taget.TryGetFeaturesValue(CommonUsages,trigger,out float triggerValue);
+        //target.TryGetFeaturesValue(CommonUsages,trigger,out float triggerValue);
         //if(triggerValue !=0)
         //accion 
         if (Input.GetMouseButton(0) && timer >= 0.5f)
