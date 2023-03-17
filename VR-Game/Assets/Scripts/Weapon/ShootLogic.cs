@@ -126,7 +126,7 @@ public class ShootLogic : MonoBehaviour
     {
         slider.fillAmount = cooldownTimer / maxCooldown;
     }
-    private Vector3 VelocidadInicialCalculo(Vector3 destino,Vector3 origen, float tiempo)
+    public Vector3 VelocidadInicialCalculo(Vector3 destino,Vector3 origen, float tiempo)
     {
         Vector3 distancia = destino - origen;
         float viX = distancia.x / tiempo;
