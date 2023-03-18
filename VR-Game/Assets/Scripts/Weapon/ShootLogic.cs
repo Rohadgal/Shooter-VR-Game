@@ -29,7 +29,7 @@ public class ShootLogic : MonoBehaviour
     void Start()
     {
         lineRenderer= GetComponent<LineRenderer>();
-        shootEnabled = true;
+        
 
     }
 
@@ -67,6 +67,16 @@ public class ShootLogic : MonoBehaviour
         }
 
         RefreshSlider();
+    }
+
+    public void CheckShoot()
+    {
+        shootEnabled = true;
+    }
+
+    public void DeactivateShoot()
+    {
+        shootEnabled= false;
     }
 
     public void Shoot()
