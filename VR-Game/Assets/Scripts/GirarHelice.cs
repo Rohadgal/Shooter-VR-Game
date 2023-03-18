@@ -10,5 +10,9 @@ public class GirarHelice : MonoBehaviour
     void Update()
     {
         transform.Rotate(localAxis*angle*angleVelocity*Time.deltaTime);
+        // Vector3 vectorTemp = Formulas.RotacionDeMatrizY(this.transform.localPosition, (angle));
+        // Quaternion res = new Quaternion(vectorTemp.x, vectorTemp.y, vectorTemp.z, 1);
+
+        // transform.rotation = res;
     }
 }
