@@ -22,7 +22,7 @@ public class ShootLogic : MonoBehaviour
     public float cooldownTimer;
     public float maxCooldown = 7;
 
-
+    public InputDevice target;
 
 
 
@@ -71,10 +71,10 @@ public class ShootLogic : MonoBehaviour
 
     public void Shoot()
     {
-        //target.TryGetFeaturesValue(CommonUsages,trigger,out float triggerValue);
-        //if(triggerValue !=0)
         //accion 
-        if (Input.GetMouseButton(0) && timer >= 0.5f)
+        //if (Input.GetMouseButton(0) && timer >= 0.5f)
+        target.TryGetFeatureValue(CommonUsages.trigger,out float triggerValue);
+        if(triggerValue !=0)
         {
             GameObject bola = Instantiate(bolaPrefab, origen.transform.position, Quaternion.identity);
             bola.GetComponent<Rigidbody>().velocity = velocidadInicial;
@@ -82,9 +82,9 @@ public class ShootLogic : MonoBehaviour
 
             
         }
-
-        //triggerValue !=0
-        if (Input.GetMouseButton(0))
+        //Input.GetMouseButton(0)
+        
+        if (triggerValue != 0)
         {
             timer += Time.deltaTime;
             cooldownTimer += Time.deltaTime;
@@ -115,7 +115,9 @@ public class ShootLogic : MonoBehaviour
     }
     public void ShootCooldown()
     {
-        if(Input.GetMouseButton(0) && cooldownTimer >= 0)
+        target.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
+        //Input.GetMouseButton(0)
+        if (triggerValue != 0 && cooldownTimer >= 0)
         {
             cooldownTimer += Time.deltaTime;
         }
