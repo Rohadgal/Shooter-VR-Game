@@ -15,16 +15,23 @@ public class GameManager : MonoBehaviour
 
    void WinOrLose(List<GameObject> enemies)
    {
-     
-    if(!user)
+     int counter = 0;
+    foreach(GameObject gameObject in machine)
     {
-        Debug.LogWarning("YOU LOSE");
+        if(gameObject == null)
+        {
+            counter++;
+        }
     }
-    else 
-    if(machine.Count == 0)
+
+    if(counter >= enemies.Count)
     {
         Debug.LogWarning("YOU WIN");
     }
-    Debug.Log("AKI TOY");
+
+    if(user == null)
+    {
+        Debug.LogWarning("YOU LOSE");
+    }
    } 
 }

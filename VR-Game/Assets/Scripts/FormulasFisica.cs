@@ -74,7 +74,7 @@ public class Formulas
         return ubicacionActualizada;
     }
 
-    public Vector3 RotacionDeMatrizX(Vector3 ubicacionActual, float angle)
+    public static Vector3 RotacionDeMatrizX(Vector3 ubicacionActual, float angle)
     {
         Vector3 ubicacionActualizada;
 
@@ -106,7 +106,7 @@ public class Formulas
         return ubicacionActualizada;
     }
 
-    public Vector3 RotacionDeMatrizZ(Vector3 ubicacionActual, float angle)
+    public static Vector3 RotacionDeMatrizZ(Vector3 ubicacionActual, float angle)
     {
         Vector3 ubicacionActualizada;
 
