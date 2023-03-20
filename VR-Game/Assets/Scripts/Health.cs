@@ -8,6 +8,13 @@ public class Health : MonoBehaviour
     
     int currentHealth = initialHealth;
 
+    public ParticleSystem m_ParticleSystem;
+
+    public void Start()
+    {
+        
+        
+    }
     private void OnTriggerEnter(Collider collider)
     {
         if(collider.CompareTag("Bullet"))
@@ -17,9 +24,18 @@ public class Health : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Debug.Log("THIS EXPLODED!");
-            Destroy(gameObject);
+            if(m_ParticleSystem != null)
+            {
+            m_ParticleSystem.Play();
+            }
+            Debug.Log("THIS EXPLODED!");          
+            StartCoroutine(DestroyObject());
         }
+    }
+    IEnumerator DestroyObject()
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
     }
 
 }

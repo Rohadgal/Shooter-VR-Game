@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DetectEnemy : MonoBehaviour
 {
+    public ShootEnemy shootEnemy;
     public GameObject Ship;
     float distance;
     //public float fireDistance = 10f;
@@ -11,16 +12,27 @@ public class DetectEnemy : MonoBehaviour
     public float viewAngle = 45;
     public float viewRange = 60;
 
+   
+    public float timer;
+
     void Start()
     {
         distance = Formulas.Distance(Ship.transform.position, this.transform.position);
     }
+
+  
     void FixedUpdate()
     {
         distance = Formulas.Distance(Ship.transform.position, this.transform.position);
         if(CanSeeTarget(Ship.transform, viewAngle, viewRange))
         {
-           Destroy( Instantiate(Bomb, this.transform.position, Quaternion.identity), 2f);   
+            if(timer > 0.2)
+            {
+            shootEnemy.Shoot();
+            timer =0;
+            }
+            timer += Time.deltaTime;
+            //Destroy( Instantiate(Bomb, this.transform.position, Quaternion.identity), 2f);   
         }
     }
 
@@ -34,15 +46,15 @@ public class DetectEnemy : MonoBehaviour
             if (Physics.Raycast(transform.position, toTarget, out RaycastHit raycastHit, viewRange ))
             {
 
-               // Debug.LogError("Casi Disparo.");
+                //Debug.LogError("Casi Disparo.");
                 if (raycastHit.transform == shipTarget)  
-                {
-                   // Debug.LogError("Disparo.");
+                {                
+                    //Debug.Log("disparo");
                     return true;
                 }
             }
         }
         return false;
     }
-
+   
 }
