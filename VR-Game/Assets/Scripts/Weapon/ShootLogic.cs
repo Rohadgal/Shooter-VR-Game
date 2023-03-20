@@ -168,6 +168,14 @@ public class ShootLogic : MonoBehaviour
         bola.GetComponent<Rigidbody>().velocity = velocidadInicial;
     }
 
+    public void CheckShoot()
+    {
+        shootEnabled = true;
+    }
 
+    public void DeactivateShoot()
+    {
+        shootEnabled= false;
+    }
 
 }

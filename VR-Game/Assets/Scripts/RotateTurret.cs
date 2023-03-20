@@ -15,21 +15,10 @@ public class RotateTurret : MonoBehaviour
     //public  interactable;
 
     //public InputActionReference toggleReference=null;
+    private bool right;
+    private bool left;
 
-    void Start()
-    {
-        List<InputDevice> controllers = new List<InputDevice>();
-        InputDevices.GetDevices(controllers);
 
-        foreach (var item in controllers)
-        {
-            Debug.Log(item.name + item.characteristics);
-        }
-
-        target = controllers[0];
-    }
-
-    
     void Update()
     {    
         
@@ -50,5 +39,11 @@ public class RotateTurret : MonoBehaviour
         if(target.TryGetFeatureValue(CommonUsages.secondaryButton, out bool SecondaryButtonValue))
         transform.Rotate(new Vector3(0f, -30f, 0f) * Time.deltaTime);
         //if (Input.GetKey(KeyCode.Space))
+    }
+
+    public void BlockRotation()
+    {
+        right = false;
+        left = false;
     }
 }
