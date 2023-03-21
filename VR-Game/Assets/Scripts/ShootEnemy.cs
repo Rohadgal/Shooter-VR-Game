@@ -20,6 +20,7 @@ public class ShootEnemy : MonoBehaviour
   public void Shoot()
     {
         GameObject bola = Instantiate(bolaPrefab, origen.transform.position, Quaternion.identity);
+        bola.transform.Rotate(180, 0, 0);
         bola.GetComponent<Rigidbody>().velocity = velocidadInicial;
     }
 

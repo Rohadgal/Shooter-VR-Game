@@ -50,9 +50,10 @@ public class ShootLogic : MonoBehaviour
     {
         if (estoyDisparando == false)
         {
-            lineRenderer.positionCount = totalSegmentos * tiempo;
+           // if(lineRenderer)
+            //lineRenderer.positionCount = totalSegmentos * tiempo;
             velocidadInicial = VelocidadInicialCalculo(destino.transform.position, origen.transform.position, tiempo);
-            DibujarLinea(velocidadInicial, tiempo);
+            //DibujarLinea(velocidadInicial, tiempo);
 
         }
 
