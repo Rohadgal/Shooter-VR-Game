@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR;
+using UnityEngine.InputSystem;
 
 public class ShootLogic : MonoBehaviour
 {
@@ -18,19 +19,29 @@ public class ShootLogic : MonoBehaviour
     private bool estoyDisparando = false;
     public bool shootEnabled = true;
     public bool test;
+    public bool isShooting;
     public float timer = 1;
     public float cooldownTimer;
     public float maxCooldown = 7;
 
+<<<<<<< Updated upstream
+
+=======
+    public InteractableCheck interactableCheck;
+    private InputAction.CallbackContext context;
+>>>>>>> Stashed changes
+
+    //public InputDevice target;
 
 
+    //public InputActionReference 
 
 
     void Start()
     {
         lineRenderer= GetComponent<LineRenderer>();
         shootEnabled = true;
-
+      
     }
 
     void Update()
@@ -43,10 +54,10 @@ public class ShootLogic : MonoBehaviour
 
         }
 
-        if(shootEnabled == true)
+        /*if(shootEnabled == true)
         {
             Shoot();
-        }
+        }*/
 
 
 
@@ -58,6 +69,7 @@ public class ShootLogic : MonoBehaviour
         if(shootEnabled == false)
         {
             test = true;
+            isShooting=false;
         }
 
         if(cooldownTimer <= 0)
@@ -67,24 +79,45 @@ public class ShootLogic : MonoBehaviour
         }
 
         RefreshSlider();
+
+        if(interactableCheck.grabActive == true)
+        {
+            shootEnabled = true;
+
+            Shoot(context);
+        }
+        else
+            shootEnabled = false;
+        
     }
 
-    public void Shoot()
+    
+
+    public void Shoot(InputAction.CallbackContext context)
     {
+<<<<<<< Updated upstream
         //taget.TryGetFeaturesValue(CommonUsages,trigger,out float triggerValue);
         //if(triggerValue !=0)
         //accion 
         if (Input.GetMouseButton(0) && timer >= 0.5f)
+=======
+        if(context.started)
+>>>>>>> Stashed changes
         {
+
+            isShooting = true;
             GameObject bola = Instantiate(bolaPrefab, origen.transform.position, Quaternion.identity);
             bola.GetComponent<Rigidbody>().velocity = velocidadInicial;
             timer = 0;
-
-            
         }
+<<<<<<< Updated upstream
 
         //triggerValue !=0
         if (Input.GetMouseButton(0))
+=======
+        
+        if (isShooting == true)
+>>>>>>> Stashed changes
         {
             timer += Time.deltaTime;
             cooldownTimer += Time.deltaTime;
@@ -94,10 +127,10 @@ public class ShootLogic : MonoBehaviour
         {
             test = true;
         }
-        
 
         if (cooldownTimer >= 7)
         {
+            isShooting=false;
             shootEnabled = false;
         }
 
@@ -107,20 +140,34 @@ public class ShootLogic : MonoBehaviour
         }
     }
 
+    public void CheckTimer()
+    {
+        if (isShooting==true)
+        {
+            timer += Time.deltaTime;
+            cooldownTimer += Time.deltaTime;
+            test = false;
+        }
+        else
+        {
+            test = true;
+        }
+    }
+
     public void cooldownRefresh()
     {
         
          cooldownTimer -= Time.deltaTime;
         
     }
-    public void ShootCooldown()
+    /*public void ShootCooldown()
     {
         if(Input.GetMouseButton(0) && cooldownTimer >= 0)
         {
             cooldownTimer += Time.deltaTime;
         }
 
-    }
+    }*/
 
     public void RefreshSlider()
     {
