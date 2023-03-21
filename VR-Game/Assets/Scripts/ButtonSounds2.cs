@@ -27,9 +27,9 @@ public class ButtonSounds2 : MonoBehaviour
         audioSource2.Play();
     }
 
-    public void StopMusic()
+    /*public void StopMusic()
     {
         audioSource2.Pause();
-    }
+    }*/
 }
 

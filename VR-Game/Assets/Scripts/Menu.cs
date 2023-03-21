@@ -1,35 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class Audio : MonoBehaviour
+public class Menu : MonoBehaviour
 {
-    public AudioSource audioSource1;
-    public AudioClip clip1;
-    public AudioSource audioSource2;
-    public AudioClip clip2;
     // Start is called before the first frame update
-    void Start()
+    public void StartGEIM()
     {
-        audioSource1.clip = clip1;
-        audioSource2.clip = clip2;
-
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void PlaySound()
+    // Update is called once per frame
+    public void ExitGeim()
     {
-        audioSource1.Play();
-    }
-
-    public void BackgroundMusic()
-    {
-        audioSource2.Play();
-    }
-
-    public void StopMusic()
-    {
-        audioSource2.Pause();
+        Application.Quit();
     }
 }
 
