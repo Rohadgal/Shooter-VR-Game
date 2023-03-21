@@ -7,6 +7,7 @@ public class InputActions : MonoBehaviour
 {
 
     private InputDevice target;
+    private InputDevice target2;
     void Start()
     {
         List<InputDevice> controllers = new List<InputDevice>();
@@ -27,5 +28,8 @@ public class InputActions : MonoBehaviour
         if (triggerValue != 0) { }
             //tomar objeto
             //Debug.Log("interaccion");
+
+
+            target.TryGetFeatureValue(CommonUsages.primaryButton,out bool primaryButtonValue);
     }
 }
