@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class ShootLogic : MonoBehaviour
 {
@@ -25,8 +26,8 @@ public class ShootLogic : MonoBehaviour
     public float maxCooldown = 7;
 
 
-    public InteractableCheck interactableCheck;
-    private InputAction.CallbackContext context;
+   // public InteractableCheck interactableCheck;
+    //private InputAction.CallbackContext context;
 
 
     //public InputDevice target;
@@ -40,6 +41,9 @@ public class ShootLogic : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         shootEnabled = true;
 
+        XRGrabInteractable grabble = GetComponent<XRGrabInteractable>();
+        grabble.activated.AddListener(Shoot);
+         
     }
 
     void Update()
@@ -78,33 +82,29 @@ public class ShootLogic : MonoBehaviour
 
         RefreshSlider();
 
-        if (interactableCheck.grabActive == true)
+        /*if (interactableCheck.grabActive == true)
         {
             shootEnabled = true;
 
-            Shoot(context);
+           
         }
         else
-            shootEnabled = false;
+            shootEnabled = false;*/
 
     }
 
 
 
-    public void Shoot(InputAction.CallbackContext context)
+    public void Shoot(ActivateEventArgs arg)
     {
 
         //if (Input.GetMouseButton(0) && timer >= 0.5f)
-
-            if (context.started)
-
-            {
 
                 isShooting = true;
                 GameObject bola = Instantiate(bolaPrefab, origen.transform.position, Quaternion.identity);
                 bola.GetComponent<Rigidbody>().velocity = velocidadInicial;
                 timer = 0;
-            }
+            
 
         //triggerValue !=0
         //if (Input.GetMouseButton(0))
