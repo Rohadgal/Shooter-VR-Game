@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.XR;
 
@@ -18,17 +19,25 @@ public class ShootLogic : MonoBehaviour
     private bool estoyDisparando = false;
     public bool shootEnabled = true;
     public bool test;
+    public bool isShooting;
     public float timer = 1;
     public float cooldownTimer;
     public float maxCooldown = 7;
 
-    public InputDevice target;
 
+    public InteractableCheck interactableCheck;
+    private InputAction.CallbackContext context;
+
+
+    //public InputDevice target;
+
+
+    //public InputActionReference 
 
 
     void Start()
     {
-        lineRenderer= GetComponent<LineRenderer>();
+        lineRenderer = GetComponent<LineRenderer>();
         shootEnabled = true;
 
     }
@@ -43,10 +52,10 @@ public class ShootLogic : MonoBehaviour
 
         }
 
-        if(shootEnabled == true)
+        /*if(shootEnabled == true)
         {
             Shoot();
-        }
+        }*/
 
 
 
@@ -55,36 +64,54 @@ public class ShootLogic : MonoBehaviour
             cooldownTimer -= Time.deltaTime;
         }
 
-        if(shootEnabled == false)
+        if (shootEnabled == false)
         {
             test = true;
+            isShooting = false;
         }
 
-        if(cooldownTimer <= 0)
+        if (cooldownTimer <= 0)
         {
             test = false;
             shootEnabled = true;
         }
 
         RefreshSlider();
+
+        if (interactableCheck.grabActive == true)
+        {
+            shootEnabled = true;
+
+            Shoot(context);
+        }
+        else
+            shootEnabled = false;
+
     }
 
-    public void Shoot()
-    {
-        //accion 
-        //if (Input.GetMouseButton(0) && timer >= 0.5f)
-        target.TryGetFeatureValue(CommonUsages.trigger,out float triggerValue);
-        if(triggerValue !=0)
-        {
-            GameObject bola = Instantiate(bolaPrefab, origen.transform.position, Quaternion.identity);
-            bola.GetComponent<Rigidbody>().velocity = velocidadInicial;
-            timer = 0;
 
-            
-        }
-        //Input.GetMouseButton(0)
-        
-        if (triggerValue != 0)
+
+    public void Shoot(InputAction.CallbackContext context)
+    {
+
+        //if (Input.GetMouseButton(0) && timer >= 0.5f)
+
+            if (context.started)
+
+            {
+
+                isShooting = true;
+                GameObject bola = Instantiate(bolaPrefab, origen.transform.position, Quaternion.identity);
+                bola.GetComponent<Rigidbody>().velocity = velocidadInicial;
+                timer = 0;
+            }
+
+        //triggerValue !=0
+        //if (Input.GetMouseButton(0))
+
+
+        if (isShooting == true)
+
         {
             timer += Time.deltaTime;
             cooldownTimer += Time.deltaTime;
@@ -94,41 +121,53 @@ public class ShootLogic : MonoBehaviour
         {
             test = true;
         }
-        
 
         if (cooldownTimer >= 7)
         {
+            isShooting = false;
             shootEnabled = false;
         }
 
-        if(cooldownTimer <= 0)
+        if (cooldownTimer <= 0)
         {
             test = false;
         }
     }
 
+    public void CheckTimer()
+    {
+        if (isShooting == true)
+        {
+            timer += Time.deltaTime;
+            cooldownTimer += Time.deltaTime;
+            test = false;
+        }
+        else
+        {
+            test = true;
+        }
+    }
+
     public void cooldownRefresh()
     {
-        
-         cooldownTimer -= Time.deltaTime;
-        
+
+        cooldownTimer -= Time.deltaTime;
+
     }
-    public void ShootCooldown()
+    /*public void ShootCooldown()
     {
-        target.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
-        //Input.GetMouseButton(0)
-        if (triggerValue != 0 && cooldownTimer >= 0)
+        if(Input.GetMouseButton(0) && cooldownTimer >= 0)
         {
             cooldownTimer += Time.deltaTime;
         }
 
-    }
+    }*/
 
     public void RefreshSlider()
     {
         slider.fillAmount = cooldownTimer / maxCooldown;
     }
-    public Vector3 VelocidadInicialCalculo(Vector3 destino,Vector3 origen, float tiempo)
+    private Vector3 VelocidadInicialCalculo(Vector3 destino, Vector3 origen, float tiempo)
     {
         Vector3 distancia = destino - origen;
         float viX = distancia.x / tiempo;
@@ -148,34 +187,16 @@ public class ShootLogic : MonoBehaviour
 
     private void DibujarLinea(Vector3 velocidadInicial, float tiempo)
     {
-        for(int i = 0; i < totalSegmentos * tiempo; i++)
+        for (int i = 0; i < totalSegmentos * tiempo; i++)
         {
-            Vector3 posicionTemporal = PosicionEnElTiempo(velocidadInicial, (i/(totalSegmentos* tiempo)) * tiempo);
+            Vector3 posicionTemporal = PosicionEnElTiempo(velocidadInicial, (i / (totalSegmentos * tiempo)) * tiempo);
             lineRenderer.SetPosition(i, posicionTemporal);
 
-            if(i == 5)
+            if (i == 5)
             {
                 puntoParabola = posicionTemporal;
             }
         }
-    }
-
-
-    IEnumerator DelayShoot()
-    {
-        yield return new WaitForSeconds(3);
-        GameObject bola = Instantiate(bolaPrefab, origen.transform.position, Quaternion.identity);
-        bola.GetComponent<Rigidbody>().velocity = velocidadInicial;
-    }
-
-    public void CheckShoot()
-    {
-        shootEnabled = true;
-    }
-
-    public void DeactivateShoot()
-    {
-        shootEnabled= false;
     }
 
 }
