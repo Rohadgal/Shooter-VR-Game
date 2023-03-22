@@ -58,7 +58,7 @@ public class ShipMove : MonoBehaviour
         float step = speed * Time.deltaTime;
         shipMove.transform.position = Vector3.MoveTowards(shipMove.transform.position, Casillas[current].transform.position, step);
         Quaternion rotShip = Quaternion.LookRotation(Casillas[current].transform.position - shipMove.transform.position);
-        shipMove.transform.rotation = Quaternion.RotateTowards(shipMove.transform.rotation, rotShip, rotateSpeed * Time.deltaTime);
+        shipMove.transform.rotation = Quaternion.Lerp(shipMove.transform.rotation, rotShip, rotateSpeed * Time.deltaTime);
     }
 }
 
