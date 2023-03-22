@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 6c8835a1ce2a091499dc62cc3e58a47c
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Bulletproof
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 14313f0dd04440649b3d1b094ea2fbb8, type: 3}
+  - {fileID: 12800000, guid: e351061ad0fe6de4990d867a130f1505, type: 3}
+  - {fileID: 12800000, guid: 7893aece1712a324e91da51a5f262c6b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
