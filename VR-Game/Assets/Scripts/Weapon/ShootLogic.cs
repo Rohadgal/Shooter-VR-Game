@@ -25,6 +25,9 @@ public class ShootLogic : MonoBehaviour
     public float cooldownTimer;
     public float maxCooldown = 7;
 
+   // public int coolInt;
+    //public int sumaDisparo=10;
+
 
    // public InteractableCheck interactableCheck;
     //private InputAction.CallbackContext context;
@@ -66,6 +69,7 @@ public class ShootLogic : MonoBehaviour
 
         if (test == true)
         {
+            
             cooldownTimer -= Time.deltaTime;
         }
 
@@ -105,6 +109,9 @@ public class ShootLogic : MonoBehaviour
                 GameObject bola = Instantiate(bolaPrefab, origen.transform.position, Quaternion.identity);
                 bola.GetComponent<Rigidbody>().velocity = velocidadInicial;
                 timer = 0;
+
+                cooldownTimer++;
+                //coolInt += sumaDisparo;
             
 
         //triggerValue !=0
@@ -151,7 +158,7 @@ public class ShootLogic : MonoBehaviour
 
     public void cooldownRefresh()
     {
-
+       
         cooldownTimer -= Time.deltaTime;
 
     }
