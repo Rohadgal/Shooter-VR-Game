@@ -10,15 +10,29 @@ public class Health : MonoBehaviour
 
     public ParticleSystem m_ParticleSystem;
 
+    public AudioSource hitMarker;
+
+    public Color hitColor;
+    public Color normalColor;
+    public GameObject avion;
+
     public void Start()
     {
-        
-        
+        //Destroy(gameObject, 5f);
+
     }
     private void OnTriggerEnter(Collider collider)
     {
         if(collider.CompareTag("Bullet"))
-        currentHealth -= 10;
+        {
+            GetComponent<MeshRenderer>().material.color = hitColor;
+            currentHealth -= 10;
+            hitMarker.volume = 0.5f;
+            hitMarker.Play();
+            GetComponent<MeshRenderer>().material.color = normalColor;
+
+        }
+       
         
         Debug.Log(currentHealth);
 
