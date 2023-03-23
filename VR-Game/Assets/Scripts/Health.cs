@@ -25,11 +25,11 @@ public class Health : MonoBehaviour
     {
         if(collider.CompareTag("Bullet"))
         {
-            GetComponent<MeshRenderer>().material.color = hitColor;
+           // GetComponent<MeshRenderer>().material.color = hitColor;
             currentHealth -= 10;
             hitMarker.volume = 0.5f;
             hitMarker.Play();
-            GetComponent<MeshRenderer>().material.color = normalColor;
+            //GetComponent<MeshRenderer>().material.color = normalColor;
 
         }
        

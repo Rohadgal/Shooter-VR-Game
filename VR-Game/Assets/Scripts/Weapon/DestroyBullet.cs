@@ -12,6 +12,6 @@ public class DestroyBullet : MonoBehaviour
 
     public void OnDestroy()
     {
-        Destroy(this.gameObject,2);
+        Destroy(this.gameObject,4);
     }
 }

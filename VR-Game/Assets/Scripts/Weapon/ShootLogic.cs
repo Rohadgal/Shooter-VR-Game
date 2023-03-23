@@ -46,97 +46,76 @@ public class ShootLogic : MonoBehaviour
 
         XRGrabInteractable grabble = GetComponent<XRGrabInteractable>();
         grabble.activated.AddListener(Shoot);
+
+        cooldownTimer = Mathf.Clamp(cooldownTimer,0f, 7f);
          
     }
 
     void Update()
     {
+        cooldownTimer = Mathf.Clamp(cooldownTimer,0f, 7f);
         if (estoyDisparando == false)
         {
            // if(lineRenderer)
             //lineRenderer.positionCount = totalSegmentos * tiempo;
-            velocidadInicial = VelocidadInicialCalculo(destino.transform.position, origen.transform.position, tiempo);
             //DibujarLinea(velocidadInicial, tiempo);
+            velocidadInicial = VelocidadInicialCalculo(destino.transform.position, origen.transform.position, tiempo);
 
-        }
-
-        /*if(shootEnabled == true)
-        {
-            Shoot();
-        }*/
-
-
-
-        if (test == true)
-        {
-            
-            cooldownTimer -= Time.deltaTime;
         }
 
         if (shootEnabled == false)
         {
+
             test = true;
             isShooting = false;
-        }
 
-        if (cooldownTimer <= 0)
-        {
-            test = false;
-            shootEnabled = true;
-        }
-
-        RefreshSlider();
-
-        /*if (interactableCheck.grabActive == true)
-        {
-            shootEnabled = true;
-
-           
-        }
-        else
-            shootEnabled = false;*/
-
-    }
-
-
-
-    public void Shoot(ActivateEventArgs arg)
-    {
-
-        //if (Input.GetMouseButton(0) && timer >= 0.5f)
-
-                isShooting = true;
-                GameObject bola = Instantiate(bolaPrefab, origen.transform.position, Quaternion.identity);
-                bola.GetComponent<Rigidbody>().velocity = velocidadInicial;
-                timer = 0;
-
-                cooldownTimer++;
-                //coolInt += sumaDisparo;
-            
-
-        //triggerValue !=0
-        //if (Input.GetMouseButton(0))
-
-
-        if (isShooting == true)
-
-        {
-            timer += Time.deltaTime;
-            cooldownTimer += Time.deltaTime;
-            test = false;
-        }
-        else
-        {
-            test = true;
         }
 
         if (cooldownTimer >= 7)
         {
             isShooting = false;
             shootEnabled = false;
+            test = true;
+            cooldownTimer -= Time.deltaTime;
+            print("aqui test se pasa a true y deberia bajar");
+            RefreshSlider();
+        }
+
+        if(isShooting==false)
+        {
+            test=true;
+            cooldownTimer -= Time.deltaTime;
+            Debug.LogWarning("se paso a falso y empezo a bajar");
+             RefreshSlider();
+        }
+    }
+    public void Shoot(ActivateEventArgs arg)
+    {
+ if(shootEnabled == true)
+        {
+        cooldownTimer++;
+        timer += Time.deltaTime;
+        Debug.LogError("aqui esta sumando");
+        isShooting = true;
+        Debug.Log("isShooting es true");
+        GameObject bola = Instantiate(bolaPrefab, origen.transform.position, Quaternion.identity);
+        bola.GetComponent<Rigidbody>().velocity = velocidadInicial;
+        timer = 0;
+        isShooting = false;
+        Debug.Log("isShooting cambio a false y ya no deberia sumar");
+
+        RefreshSlider();
         }
 
         if (cooldownTimer <= 0)
+        {
+            test = false;
+            shootEnabled = true;
+        }
+
+
+        if (isShooting == true)
+
         {
             test = false;
         }
