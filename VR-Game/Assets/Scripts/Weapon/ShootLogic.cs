@@ -25,6 +25,8 @@ public class ShootLogic : MonoBehaviour
     public float cooldownTimer;
     public float maxCooldown = 7;
 
+    public AudioSource audioSource;
+
    // public int coolInt;
     //public int sumaDisparo=10;
 
@@ -95,14 +97,15 @@ public class ShootLogic : MonoBehaviour
         {
         cooldownTimer++;
         timer += Time.deltaTime;
-        Debug.LogError("aqui esta sumando");
+        //Debug.LogError("aqui esta sumando");
         isShooting = true;
-        Debug.Log("isShooting es true");
+        //Debug.Log("isShooting es true");
         GameObject bola = Instantiate(bolaPrefab, origen.transform.position, Quaternion.identity);
+        audioSource.Play();
         bola.GetComponent<Rigidbody>().velocity = velocidadInicial;
         timer = 0;
         isShooting = false;
-        Debug.Log("isShooting cambio a false y ya no deberia sumar");
+        //Debug.Log("isShooting cambio a false y ya no deberia sumar");
 
         RefreshSlider();
         }

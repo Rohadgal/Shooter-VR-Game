@@ -13,7 +13,7 @@ public class DetectEnemy : MonoBehaviour
     public float viewRange = 60;
 
    
-    public float timer;
+    float timer;
 
     void Start()
     {
@@ -26,7 +26,8 @@ public class DetectEnemy : MonoBehaviour
         distance = Formulas.Distance(Ship.transform.position, this.transform.position);
         if(CanSeeTarget(Ship.transform, viewAngle, viewRange))
         {
-            if(timer > 0.2)
+            // El número permite dar una pausa entre los disparos
+            if(timer > 0.4)
             {
             shootEnemy.Shoot();
             timer =0;
@@ -49,7 +50,7 @@ public class DetectEnemy : MonoBehaviour
                 //Debug.LogError("Casi Disparo.");
                 if (raycastHit.transform == shipTarget)  
                 {                
-                    //Debug.Log("disparo");
+                    Debug.Log("disparo");
                     return true;
                 }
             }

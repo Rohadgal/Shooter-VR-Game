@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class ShipMove : MonoBehaviour
 {
-
     public Transform[] Casillas;
    // public int index;
     public GameObject shipMove;
