@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23320693179146640}
   - component: {fileID: 2389454879382240502}
   - component: {fileID: 6905310031921104114}
-  - component: {fileID: 5953232145615375584}
+  - component: {fileID: -7604621988495212681}
   m_Layer: 9
   m_Name: Rocket01_Red
   m_TagString: Bullet
@@ -109,10 +109,10 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1.6780804
-  m_Height: 9.814482
+  m_Height: 4.0901756
   m_Direction: 1
-  m_Center: {x: 0.009535312, y: 1.0065076, z: 0.0025549529}
---- !u!54 &5953232145615375584
+  m_Center: {x: 0.009535253, y: 3.8686607, z: 0.0025550094}
+--- !u!54 &-7604621988495212681
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
