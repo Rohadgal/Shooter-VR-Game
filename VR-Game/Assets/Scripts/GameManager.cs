@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
    [SerializeField] public List<GameObject> machine = new List<GameObject>();
 
     public TextMeshProUGUI enemigos;
+    public PANTALLAS pANTALLAS;
 
 
     private void Update() 
@@ -35,11 +36,14 @@ public class GameManager : MonoBehaviour
     if(counter >= enemies.Count)
     {
         Debug.LogWarning("YOU WIN");
-    }
+            pANTALLAS.Activate2();
+
+        }
 
     if(user == null)
     {
         Debug.LogWarning("YOU LOSE");
+            pANTALLAS.Activate1();
     }
    } 
 }
