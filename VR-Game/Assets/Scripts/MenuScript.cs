@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 public class MenuScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    
 
    public void Play()
     {
         Debug.Log("se cambio de escena");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+  
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1); 
     }
 
     public void ExitGame()

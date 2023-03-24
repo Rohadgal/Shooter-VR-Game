@@ -4,57 +4,64 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    const int initialHealth = 60;
-    
-    int currentHealth = Mathf.Clamp(initialHealth, 0, 100);
+    public int initialHealth = 100;
+    public int damage = 10;
 
-    //public PANTALLAS pANTALLAS;
-    //public GameObject GeimOvr;
+    static public GameObject self;
 
-    // public ParticleSystem m_ParticleSystem;
+    int currentHealth;
+    public ParticleSystem m_ParticleSystem;
 
-    // public AudioSource hitMarker;
+    public AudioSource audioSource;
 
-    // public Color hitColor;
-    // public Color normalColor;
+    bool isDead;
 
     private void Start() 
     {
-        currentHealth =  Mathf.Clamp(initialHealth, 0, 100);   
+        currentHealth = initialHealth;
+        currentHealth =  Mathf.Clamp(initialHealth, 0, 100);  
+        //audioSource.volume*=5f;
     }
     private void OnTriggerEnter(Collider collider)
     {
         if(collider.CompareTag("Bullet"))
         {
-           // GetComponent<MeshRenderer>().material.color = hitColor;
-            if(currentHealth > 0) currentHealth -= 60;//regresar a 10 cuando termines Gil
-            // hitMarker.volume = 0.5f;
-            // hitMarker.Play();
-            //GetComponent<MeshRenderer>().material.color = normalColor;
-
+            if(currentHealth > 0) 
+            {
+                currentHealth -= damage/2;
+            }
+            //hitMarker.volume = 0.5f;
+            //hitMarker.Play();
         }
        
         
         Debug.Log(currentHealth);
 
         if (currentHealth <= 0)
-        {
-            // if(m_ParticleSystem != null)
-            // {
-            // m_ParticleSystem.Play();
-            // }
+        {   
+            isDead = true;
+            if(audioSource!=null && isDead) 
+            {   
+                Debug.Log("Antes del play");
+                audioSource.Play();
+                Debug.Log("Despues del play");
+            }
+
             Debug.Log("THIS EXPLODED!");
-            //StartCoroutine(DestroyObject());
-            Destroy(gameObject);
-            //gameObject.SetActive(true);
-            //pANTALLAS.Activate1();
-            //Debug.Log("SE ACTIVO LA PANTALLA DE DERROTA");
+            StartCoroutine(DestroyObject());
+            //Destroy(gameObject);
         }
     }
     IEnumerator DestroyObject()
     {
-        yield return new WaitForSeconds(1);
+        isDead = false;
+        yield return new WaitForSeconds(.5f);
         Destroy(gameObject);
     }
 
+    // IEnumerator RestoreHitColor()
+    // {
+    //     yield return new WaitForSeconds(1);
+    //     GetComponent<MeshRenderer>().material.color = normalColor;
+    // }
 }

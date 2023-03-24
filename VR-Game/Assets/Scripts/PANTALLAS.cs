@@ -8,28 +8,41 @@ public class PANTALLAS : MonoBehaviour
     public GameObject pant1;//perdistess
     public GameObject pant2;//ganastes
 
+
+
+    AudioSource audioSource;
+
+    public AudioClip clipMilitar;
+
+    public ButtonSounds2 backgroundMusic;
+
    
-   public void Activate1()
+   public void Perdiste()
     {
         pant1.SetActive(true);
         Debug.Log("SE ACTIVO LA PANTALLA DE DERROTA");
     }
 
-    public void Activate2 ()
+    public void Ganaste ()
     {
         pant2.SetActive(true);
+        backgroundMusic.audioSource2.Stop();
+        audioSource.clip = clipMilitar;
+        audioSource.Play();
         Debug.Log("SE ACTIVO LA PANTALLA DE VICTORIA");
     }
 
     public void MENUAgn()
 
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(0);
     }
 
     public void Again()
     {
-        Debug.Log("Reload scene");
+        //Corregir esto
+        SceneManager.UnloadSceneAsync("LevelGame");
+        SceneManager.LoadScene(1);
     }
 
 }

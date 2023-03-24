@@ -5,16 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    public GameObject mainMenu;
     // Start is called before the first frame update
     public void StartGEIM()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        
+        SceneManager.LoadScene("LevelGame", LoadSceneMode.Additive);
+        StartCoroutine(deactivateMENU());
     }
 
     // Update is called once per frame
     public void ExitGeim()
     {
         Application.Quit();
+    }
+
+    IEnumerator deactivateMENU()
+    {
+        yield return new WaitForSeconds(.2f);
+        mainMenu.SetActive(false);
     }
 }
 

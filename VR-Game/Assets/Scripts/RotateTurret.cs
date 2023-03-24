@@ -19,31 +19,31 @@ public class RotateTurret : MonoBehaviour
     private bool left;
 
 
-    void Update()
-    {    
+    // void Update()
+    // {    
         
-            RotateGunLeft();
-            RotateGunRight();
+    //         RotateGunLeft();
+    //         RotateGunRight();
                
-    }
+    // }
 
-    public void RotateGunRight()
-    {
-        if (target.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue))
-            transform.Rotate(new Vector3(0f, 30f, 0f) * Time.deltaTime);
+    // public void RotateGunRight()
+    // {
+    //     if (target.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue))
+    //         transform.Rotate(new Vector3(0f, 30f, 0f) * Time.deltaTime);
 
 
-    }
-    public void RotateGunLeft()
-    {
-        if(target.TryGetFeatureValue(CommonUsages.secondaryButton, out bool SecondaryButtonValue))
-        transform.Rotate(new Vector3(0f, -30f, 0f) * Time.deltaTime);
-        //if (Input.GetKey(KeyCode.Space))
-    }
+    // }
+    // public void RotateGunLeft()
+    // {
+    //     if(target.TryGetFeatureValue(CommonUsages.secondaryButton, out bool SecondaryButtonValue))
+    //     transform.Rotate(new Vector3(0f, -30f, 0f) * Time.deltaTime);
+    //     //if (Input.GetKey(KeyCode.Space))
+    // }
 
-    public void BlockRotation()
-    {
-        right = false;
-        left = false;
-    }
+    // public void BlockRotation()
+    // {
+    //     right = false;
+    //     left = false;
+    // }
 }

@@ -9,41 +9,60 @@ public class GameManager : MonoBehaviour
    [SerializeField] public GameObject user;
    [SerializeField] public List<GameObject> machine = new List<GameObject>();
 
-    public TextMeshProUGUI enemigos;
+    public TextMeshProUGUI cantidadEnemigosRestantes;
     public PANTALLAS pANTALLAS;
 
+    int enemiesDestroyedCounter;
+    int enemiesInList;
 
+    public GameObject HUD;
+
+    private void Start() 
+    {
+        if(machine != null) enemiesInList = machine.Count;
+
+       // enemiesDestroyedCounter = enemiesInList;
+        Debug.Log("ENEMIES: "+ enemiesInList);
+    }
     private void Update() 
     {
         WinOrLose(machine);
-        
+        cantidadEnemigosRestantes.text = enemiesDestroyedCounter.ToString(); 
     }
 
    void WinOrLose(List<GameObject> enemies)
    {
      int counter = 0;
-     
-    
-    foreach(GameObject gameObject in machine)
-    {
-         enemigos.text=enemies.Count.ToString();
-        if(gameObject == null)
+        foreach(GameObject gameObject in machine)
         {
-            counter++;
-        }
-    }
-
-    if(counter >= enemies.Count)
-    {
-        Debug.LogWarning("YOU WIN");
-            pANTALLAS.Activate2();
-
+            //cantidadEnemigosRestantess.text=enemies.Count.ToString();
+            if(gameObject == null)
+            {
+                counter++;
+                Debug.Log("cOUNTER: "+ counter);
+            }
         }
 
-    if(user == null)
-    {
-        Debug.LogWarning("YOU LOSE");
-            pANTALLAS.Activate1();
-    }
+        enemiesDestroyedCounter = enemiesInList - counter;
+
+        if(counter >= enemies.Count)
+        {
+            Debug.LogWarning("YOU WIN");
+                pANTALLAS.Ganaste();
+                StartCoroutine(DeactivateHud());
+            }
+
+        if(user == null)
+        {
+            Debug.LogWarning("YOU LOSE");
+            pANTALLAS.Perdiste();
+            StartCoroutine(DeactivateHud());
+        }
    } 
+
+   IEnumerator DeactivateHud()
+   {
+        yield return new WaitForSeconds(.3f);
+        HUD.SetActive(false);
+   }
 }
