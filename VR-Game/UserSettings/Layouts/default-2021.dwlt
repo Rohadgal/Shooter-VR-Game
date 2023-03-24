@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 17
+  controlID: 36
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 62
+  controlID: 37
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 49
+  controlID: 38
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -271,8 +271,8 @@ MonoBehaviour:
     y: 0
     width: 276
     height: 627
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -403,10 +403,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 90110000
+      scrollPos: {x: 0, y: 240}
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 12c9ffff42c9ffff9acbfffff6d0ffffdad5ffffbed7ffffdce0ffff22fbffff2efbffff30fbffffa0720000649500004496000082960000aa960000c2960000ba970000d698000012990000
+      m_ExpandedIDs: 4ee7fffff2eeffff4af8fffff4faffff64780000de780000607b0000a07c0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -422,7 +422,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 8}
+        m_ClientGUIView: {fileID: 9}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -647,7 +647,7 @@ MonoBehaviour:
       index: 10
       layout: 4
   m_WindowGUID: d69a67902db7f994ca099bec79d22ce1
-  m_Gizmos: 1
+  m_Gizmos: 0
   m_OverrideSceneCullingMask: 6917529027641081856
   m_SceneIsLit: 1
   m_SceneLighting: 1
@@ -656,9 +656,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -19.747568, y: 7.66126, z: 4.9695864}
+    m_Target: {x: 13.552205, y: 7.5679407, z: 48.69526}
     speed: 2
-    m_Value: {x: -19.747568, y: 7.66126, z: 4.9695864}
+    m_Value: {x: 13.552205, y: 7.5679407, z: 48.69526}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -705,20 +705,20 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.05045534, y: 0.7699712, z: -0.061330277, w: 0.6331492}
+    m_Target: {x: 0.010494509, y: 0.03659378, z: -0.00034351114, w: 0.99930257}
     speed: 2
-    m_Value: {x: 0.049504597, y: 0.77004665, z: -0.06017399, w: 0.63321126}
+    m_Value: {x: 0.011993121, y: 0.036592223, z: -0.0003983965, w: 0.9992583}
   m_Size:
-    m_Target: 11.517581
+    m_Target: 1.1271644
     speed: 2
-    m_Value: 11.021608
+    m_Value: 1.1802769
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 2
-    m_SpeedNormalized: 1
+    m_Speed: 0.2488
+    m_SpeedNormalized: 0.12
     m_SpeedMin: 0.01
     m_SpeedMax: 2
     m_EasingEnabled: 1
@@ -1348,22 +1348,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Sprites
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Sprites
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\gilbe\OneDrive\Documentos\GitHub\Shooter-VR-Game\VR-Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 180}
-    m_SelectedIDs: 88760000
-    m_LastClickedID: 30344
-    m_ExpandedIDs: 000000003c7600003e76000040760000427600004476000046760000487600006476000000ca9a3b
+    scrollPos: {x: 0, y: 240}
+    m_SelectedIDs: 94820000
+    m_LastClickedID: 33428
+    m_ExpandedIDs: 0000000030820000328200003482000036820000388200003a8200003c8200003e82000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1391,7 +1391,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000003c7600003e7600004076000042760000447600004676000048760000
+    m_ExpandedIDs: 0000000030820000328200003482000036820000388200003a8200003c8200003e820000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1512,7 +1512,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 162
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:

@@ -8,6 +8,9 @@ public class Health : MonoBehaviour
     
     int currentHealth = Mathf.Clamp(initialHealth, 0, 100);
 
+    //public PANTALLAS pANTALLAS;
+    //public GameObject GeimOvr;
+
     // public ParticleSystem m_ParticleSystem;
 
     // public AudioSource hitMarker;
@@ -24,7 +27,7 @@ public class Health : MonoBehaviour
         if(collider.CompareTag("Bullet"))
         {
            // GetComponent<MeshRenderer>().material.color = hitColor;
-            if(currentHealth > 0) currentHealth -= 10;
+            if(currentHealth > 0) currentHealth -= 60;//regresar a 10 cuando termines Gil
             // hitMarker.volume = 0.5f;
             // hitMarker.Play();
             //GetComponent<MeshRenderer>().material.color = normalColor;
@@ -40,9 +43,12 @@ public class Health : MonoBehaviour
             // {
             // m_ParticleSystem.Play();
             // }
-            Debug.Log("THIS EXPLODED!");          
+            Debug.Log("THIS EXPLODED!");
             //StartCoroutine(DestroyObject());
             Destroy(gameObject);
+            //gameObject.SetActive(true);
+            //pANTALLAS.Activate1();
+            //Debug.Log("SE ACTIVO LA PANTALLA DE DERROTA");
         }
     }
     IEnumerator DestroyObject()
