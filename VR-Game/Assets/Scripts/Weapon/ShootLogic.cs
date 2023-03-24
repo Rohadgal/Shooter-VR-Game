@@ -102,6 +102,7 @@ public class ShootLogic : MonoBehaviour
         //Debug.Log("isShooting es true");
         GameObject bola = Instantiate(bolaPrefab, origen.transform.position, Quaternion.identity);
         audioSource.Play();
+        //audioSource.Stop();
         bola.GetComponent<Rigidbody>().velocity = velocidadInicial;
         timer = 0;
         isShooting = false;
