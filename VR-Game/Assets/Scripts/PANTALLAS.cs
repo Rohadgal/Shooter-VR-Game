@@ -10,26 +10,16 @@ public class PANTALLAS : MonoBehaviour
 
 
 
-    //AudioSource audioSource;
-    public ButtonSounds2 backgroundMusic;
+    AudioSource audioSource;
 
     public AudioClip clipMilitar;
-    public AudioClip clipDerrota;
-    public AudioSource AudioS1;
-    public AudioSource AudioS2;
 
+    public ButtonSounds2 backgroundMusic;
 
-    void Start()
-    {
-        AudioS1.clip = clipMilitar;
-        AudioS2.clip = clipDerrota;
-    }
-
-
-    public void Perdiste()
+   
+   public void Perdiste()
     {
         pant1.SetActive(true);
-        AudioS2.Play();
         Debug.Log("SE ACTIVO LA PANTALLA DE DERROTA");
     }
 
@@ -38,7 +28,7 @@ public class PANTALLAS : MonoBehaviour
         pant2.SetActive(true);
         backgroundMusic.audioSource2.Stop();
         //audioSource.clip = clipMilitar;
-        AudioS1.Play();
+        //audioSource.Play();
         Debug.Log("SE ACTIVO LA PANTALLA DE VICTORIA");
     }
 
