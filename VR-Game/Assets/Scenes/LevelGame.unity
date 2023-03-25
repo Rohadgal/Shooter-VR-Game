@@ -3571,7 +3571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 129eeff92f1cc9e49a2566cfea22917d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialHealth: 60
+  initialHealth: 10
   damage: 10
   m_ParticleSystem: {fileID: 92602411033726418, guid: 789b745adf4ae384c8d676827c5631b3,
     type: 3}
@@ -5553,7 +5553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 129eeff92f1cc9e49a2566cfea22917d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialHealth: 60
+  initialHealth: 10
   damage: 10
   m_ParticleSystem: {fileID: 92602411033726418, guid: 789b745adf4ae384c8d676827c5631b3,
     type: 3}
@@ -6988,7 +6988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 129eeff92f1cc9e49a2566cfea22917d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialHealth: 60
+  initialHealth: 10
   damage: 10
   m_ParticleSystem: {fileID: 92602411033726418, guid: 789b745adf4ae384c8d676827c5631b3,
     type: 3}
@@ -9171,8 +9171,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pant1: {fileID: 0}
   pant2: {fileID: 0}
-  HUD: {fileID: 0}
-  audioSource: {fileID: 0}
+  clipMilitar: {fileID: 0}
+  backgroundMusic: {fileID: 0}
 --- !u!1001 &880548061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13806,7 +13806,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1192950963}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 27.5, y: 3.01, z: 21.1}
+  m_LocalPosition: {x: 9.9, y: 3.01, z: 6.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15701,7 +15701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 129eeff92f1cc9e49a2566cfea22917d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialHealth: 5
+  initialHealth: 50
   damage: 10
   m_ParticleSystem: {fileID: 0}
   audioSource: {fileID: 0}
@@ -18354,7 +18354,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666283206}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.7, y: 3.01, z: -31.3}
+  m_LocalPosition: {x: -22.6, y: 3.01, z: 9.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19899,7 +19899,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836221625}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -25.4, y: 3.01, z: 21.9}
+  m_LocalPosition: {x: -4.9, y: 3.01, z: -37.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21703,8 +21703,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pant1: {fileID: 1733249413}
   pant2: {fileID: 2139553659}
-  HUD: {fileID: 203653451}
-  audioSource: {fileID: 0}
+  clipMilitar: {fileID: 8300000, guid: 2a74a33adcda9ac4a8e2ad34ffe76afb, type: 3}
+  backgroundMusic: {fileID: 1031201832}
 --- !u!4 &2064571705
 Transform:
   m_ObjectHideFlags: 0
@@ -23127,7 +23127,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2099053248}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27.5, y: 3.01, z: -39.2}
+  m_LocalPosition: {x: -27.5, y: 3.01, z: -15.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26607,7 +26607,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7086941555066776271}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -8.9, y: 2.65, z: 38.2}
+  m_LocalPosition: {x: -8.9, y: 2.65, z: 49.5}
   m_LocalScale: {x: 0.73983437, y: 0.42454717, z: 0.33434838}
   m_ConstrainProportionsScale: 0
   m_Children:
