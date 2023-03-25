@@ -48,9 +48,9 @@ public class GameManager : MonoBehaviour
         if(counter >= enemies.Count)
         {
             Debug.LogWarning("YOU WIN");
-                pANTALLAS.Ganaste();
-                StartCoroutine(DeactivateHud());
-            }
+            pANTALLAS.Ganaste();
+            StartCoroutine(DeactivateHud());
+        }
 
         if(user == null)
         {
@@ -64,5 +64,6 @@ public class GameManager : MonoBehaviour
    {
         yield return new WaitForSeconds(.3f);
         HUD.SetActive(false);
+        Debug.Log("Se desactivo el hud");
    }
 }

@@ -27,8 +27,8 @@ public class PANTALLAS : MonoBehaviour
     {
         pant2.SetActive(true);
         backgroundMusic.audioSource2.Stop();
-        audioSource.clip = clipMilitar;
-        audioSource.Play();
+        //audioSource.clip = clipMilitar;
+        //audioSource.Play();
         Debug.Log("SE ACTIVO LA PANTALLA DE VICTORIA");
     }
 
