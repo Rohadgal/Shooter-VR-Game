@@ -10,7 +10,7 @@ public class Menu : MonoBehaviour
     public void StartGEIM()
     {
         
-        SceneManager.LoadScene("LevelGame", LoadSceneMode.Additive);
+        SceneManager.LoadScene("LevelGame");
         StartCoroutine(deactivateMENU());
     }
 

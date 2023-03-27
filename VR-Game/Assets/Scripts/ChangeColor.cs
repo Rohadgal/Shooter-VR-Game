@@ -15,11 +15,14 @@ public class ChangeColor : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter(Collider other) 
     {
-        //this.GetComponent<MeshRenderer>().material.color = materialRed.color;  
-        if(airplaneBody!=null)
-        airplaneBody.GetComponent<MeshRenderer>().material = materialRed;
-        StartCoroutine(RestoreHitColor());
-        //GetComponentInChildren<MeshRenderer>().material; 
+        if(other.CompareTag("Bullet"))
+        {
+            if(airplaneBody!=null)
+            airplaneBody.GetComponent<MeshRenderer>().material = materialRed;
+            StartCoroutine(RestoreHitColor());
+            //this.GetComponent<MeshRenderer>().material.color = materialRed.color;  
+            //GetComponentInChildren<MeshRenderer>().material; 
+        }
     }
 
         IEnumerator RestoreHitColor()

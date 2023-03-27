@@ -9,14 +9,14 @@ public class PANTALLAS : MonoBehaviour
     public GameObject pant2;//ganastes
 
 
-
-    AudioSource audioSource;
-
-    public AudioClip clipMilitar;
+    AudioSource clipVictoriaMilitar;
 
     public ButtonSounds2 backgroundMusic;
 
-   
+   private void Start() 
+   {
+                           
+   }
    public void Perdiste()
     {
         pant1.SetActive(true);
@@ -27,6 +27,7 @@ public class PANTALLAS : MonoBehaviour
     {
         pant2.SetActive(true);
         backgroundMusic.audioSource2.Stop();
+          
         //audioSource.clip = clipMilitar;
         //audioSource.Play();
         Debug.Log("SE ACTIVO LA PANTALLA DE VICTORIA");
@@ -35,6 +36,7 @@ public class PANTALLAS : MonoBehaviour
     public void MENUAgn()
 
     {
+        SceneManager.UnloadSceneAsync("LevelGame");
         SceneManager.LoadScene(0);
     }
 

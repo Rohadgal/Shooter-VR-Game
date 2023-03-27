@@ -8,6 +8,8 @@ TagManager:
   - Bullet
   - Interactable
   - Gun
+  - Plane
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

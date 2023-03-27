@@ -25,6 +25,8 @@ public class ShootLogic : MonoBehaviour
     public float cooldownTimer;
     public float maxCooldown = 7;
 
+    int shotCounter = 0;
+
     public AudioSource audioSource;
 
    // public int coolInt;
@@ -109,6 +111,7 @@ public class ShootLogic : MonoBehaviour
         //Debug.Log("isShooting cambio a false y ya no deberia sumar");
 
         RefreshSlider();
+        shotCounter++;
         }
 
         if (cooldownTimer <= 0)
@@ -123,6 +126,7 @@ public class ShootLogic : MonoBehaviour
         {
             test = false;
         }
+        
     }
 
     public void CheckTimer()
@@ -188,6 +192,11 @@ public class ShootLogic : MonoBehaviour
                 puntoParabola = posicionTemporal;
             }
         }
+    }
+
+    public int GetshotCounter()
+    {
+        return shotCounter;
     }
 
 }
