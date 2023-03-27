@@ -9,6 +9,8 @@ public class ButtonSounds2 : MonoBehaviour
     public AudioClip clip1;
     public AudioSource audioSource2;
     public AudioClip clip2;
+
+    public AudioSource victoryMusic;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +19,21 @@ public class ButtonSounds2 : MonoBehaviour
 
     }
 
+    // Se encargo de los sonidos de los botones en el canvas
     public void PlaySound()
     {
         audioSource1.Play();
     }
 
+    // Música de fondo para el juego
     public void BackgroundMusic()
     {
+        audioSource2.Play();
+    }
+
+    public void PlayVictoryMusic()
+    {
+        audioSource2 = victoryMusic;
         audioSource2.Play();
     }
 
@@ -31,5 +41,11 @@ public class ButtonSounds2 : MonoBehaviour
     {
         audioSource2.Pause();
     }*/
+    // public AudioClip PlayVictoryMusic()
+    // {
+    //     AudioClip musicaDeVictoria;
+    //     musicaDeVictoria = victoryMusic.GetComponent<AudioClip>();
+    //     return musicaDeVictoria;
+    // }
 }
 

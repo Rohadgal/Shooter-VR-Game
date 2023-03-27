@@ -8,7 +8,10 @@ public class TransformPosition : MonoBehaviour
 
     void Update()
     {
-        transform.position = Avion.transform.position;
-        transform.rotation = Avion.transform.rotation;
+        if(Avion != null)
+        {
+            transform.position = Avion.transform.position;
+            transform.rotation = Avion.transform.rotation;
+        }
     }
 }

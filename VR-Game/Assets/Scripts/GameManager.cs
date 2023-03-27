@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
    [SerializeField] public List<GameObject> machine = new List<GameObject>();
 
     public TextMeshProUGUI cantidadEnemigosRestantes;
+
+    public TextMeshProUGUI tiempoJugando;
     public PANTALLAS pANTALLAS;
 
     int enemiesDestroyedCounter;
@@ -17,8 +19,16 @@ public class GameManager : MonoBehaviour
 
     public GameObject HUD;
 
+    float timePlaying;
+
+    bool isPlaying = true;
+
+    bool gameIsOver;
+
+    public AudioSource victoryMusic;
     private void Start() 
     {
+        timePlaying = 0;
         if(machine != null) enemiesInList = machine.Count;
 
        // enemiesDestroyedCounter = enemiesInList;
@@ -26,6 +36,15 @@ public class GameManager : MonoBehaviour
     }
     private void Update() 
     {
+        if(isPlaying) timePlaying += Time.deltaTime;
+
+        TimePlayingGame();
+        
+        if(gameIsOver)
+        {
+            victoryMusic.PlayDelayed(1f);
+        }
+        
         WinOrLose(machine);
         cantidadEnemigosRestantes.text = enemiesDestroyedCounter.ToString(); 
     }
@@ -49,6 +68,9 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogWarning("YOU WIN");
             pANTALLAS.Ganaste();
+            isPlaying = false;
+            gameIsOver = true;
+            timePlaying = 0;
             StartCoroutine(DeactivateHud());
         }
 
@@ -56,6 +78,9 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogWarning("YOU LOSE");
             pANTALLAS.Perdiste();
+            isPlaying = false;
+            gameIsOver = true;
+            timePlaying = 0;
             StartCoroutine(DeactivateHud());
         }
    } 
@@ -66,4 +91,13 @@ public class GameManager : MonoBehaviour
         HUD.SetActive(false);
         Debug.Log("Se desactivo el hud");
    }
+
+   void TimePlayingGame()
+   {
+        float minutes = Mathf.FloorToInt(timePlaying / 60);
+        float seconds = Mathf.FloorToInt(timePlaying % 60);
+        tiempoJugando.text = string.Format("{0:00} : {1:00}", minutes, seconds);
+   }
+
+
 }

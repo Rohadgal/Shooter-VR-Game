@@ -23,7 +23,8 @@ public class DetectEnemy : MonoBehaviour
   
     void FixedUpdate()
     {
-        distance = Formulas.Distance(Ship.transform.position, this.transform.position);
+        if(Ship!=null) distance = Formulas.Distance(Ship.transform.position, this.transform.position);
+        
         if(CanSeeTarget(Ship.transform, viewAngle, viewRange))
         {
             // El número permite dar una pausa entre los disparos
